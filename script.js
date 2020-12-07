@@ -28,9 +28,15 @@ events.forEach( event => {
 const currentDay = document.querySelector("#currentDay");
 currentDay.textContent = dayjs().format("dddd, MMMM D, YYYY");
 
-const currentTime = document.querySelector("#currentTime");
-currentTime.textContent = dayjs().format("hh:mm:ss")
+const currentTime = document.querySelector("#currentTime")
+//currentTime.textContent = Date().toLocaleTimeString();
+var d = new Date();
+//var n = 
 
+
+let now = dayjs();
+currentTime.textContent = now.format("h:mm:ss a")
+console.log(now.format("h:mm:ss a"));
 //var allRows = document.querySelector(".extrablocks");
 var createRows = [];
 
@@ -130,56 +136,44 @@ $(".time").text(time)
     //console.log(allRows[0])
 
     var currentRow = 0
+    var task = document.querySelector("#here").value;
 
-
-    
 
     $(".saveBtn").on("click", function(event) {
         event.preventDefault();
         currentRow = parseInt(event.target.parentElement.id);
         console.log(currentRow)
-        var area = $("<textarea>");
-        var task = area.value;
-        console.log(area.value)
+        var area = $("<textarea>")
+        console.log(task)
+        localStorage.setItem("task", JSON.stringify(task))
+        var writtenTask = JSON.parse(localStorage.getItem("task"))
+        console.log(writtenTask)
+
         console.log(event)
-//should have an if it's blank do nothing
-        if (area) {
-            task = area.value;
+        if (task === false) {
+            return;
+        } else {
+
+
         }
+
+
+
+
         //$(".todo").css("float", "left");
 
-        //area.css("float", "left")
-        $("#col-md-1").append("<textarea>")
-        console.log(area.value)
+        area.css("float", "left")
+        //$(".time-block").append("<textarea>")
 
-        allRows[currentRow].push({task: task})
-        console.log(allRows)
-
-
-
-  //$(area).text(allRows[0].newRow)
-
-//when click saveBtn 
-
-
+       // allRows[currentRow].push({task: task})
+      // storeTasks()
   });
-    
-    /*addStuff())
-    
-    /*function addStuff() {
-        $("#here").css("float","left");
-        $("#here").append("<textarea>");
-    };
 
+  function storeTasks () {
+    localStorage.setItem("task", JSON.stringify(task))
 
-    function addStuff () {
-        //$(".table").add(".row");
-        var area = $("<textarea>");
-       
-        $(".time-block").append(area)
-    }*/
-
-    //area.attr("style", "justify-self: center")
+      console.log(task)
+  }
 
 //to add the class of .hour
 function onHour () {
