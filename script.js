@@ -1,3 +1,6 @@
+$(document).ready(function(){
+
+
 /*<script>
   dayjs().format()
 </script>
@@ -99,12 +102,32 @@ console.log($(".row"))
 
 
 var timeText = document.querySelectorAll("#time")
-var date = document.querySelectorAll(".date")
+var timeBlock = document.querySelectorAll(".time-block")
+console.log(timeBlock)
 
 for (var i=0; i < timeText.length; i++) {
     var time = dayjs("2020-12-06T09:00:00")
     timeText[i].textContent = dayjs(time).add(i, 'hour').format("hA")
+    if (timeText[i].textContent === currentTime.textContent) {
+        timeBlock[i].classList.add("present")
+    } else if (timeText[i].textContent < currentTime.textContent) {
+        timeBlock[i].classList.add("past")
+    } else if (timeText[i].textContent > currentTime.textContent) {
+        timeBlock[i].classList.add("future")
+    } 
 }
+
+if (timeText[0].textContent === currentTime.textContent) {
+    timeBlock[0].classList.add("present")
+} else if (timeText[0].textContent < currentTime.textContent) {
+    timeBlock[0].classList.add("past")
+} else if (timeText[0].textContent > currentTime.textContent) {
+    timeBlock[0].classList.add("future")
+}
+console.log(timeText[0])
+console.log(timeBlock[0])
+
+
 
 /*allRows.forEach( date => {
     var time = dayjs("2020-12-06T09:00:00").format("hA")
@@ -119,15 +142,12 @@ for (var i=0; i < timeText.length; i++) {
 }
 */
 
-//NOW I NEED TO SAY IF BLOCK HOUR IS THE SAME AS CURRENT TIME ADD CLASS "PRESENT"
-//IF SMALLER THAN CURRENT TIME ADD CLASS PAS
-//IF BIGGER THAN CURRENT TIME ADD CLASS FUTURE
-
+console.log($("#4"))
 
 
     var currentRow = 0
     //var taskText = document.querySelector("#here")
-    var task = 
+    var taskList = document.querySelector(".task-list")
 
 
     $(".saveBtn").on("click", function(event) {
@@ -135,7 +155,6 @@ for (var i=0; i < timeText.length; i++) {
         currentRow = parseInt(event.target.parentElement.id);
         console.log(currentRow)
         var area = $("<textarea>")
-        console.log(task)
         var task = document.querySelector("#here").value;
         //var task = allRows[currentRow].taskText.value
         var writtenTask = $(".todo")
@@ -144,32 +163,60 @@ for (var i=0; i < timeText.length; i++) {
         localStorage.setItem("task", JSON.stringify(task))
         console.log(writtenTask)
         //allRows[currentRow].push(toDo)
+        console.log(task)
 
         console.log(event)
         if (task === false) {
             return;
-        } else {
-            //renderTasks();
+        } 
+            renderTasks();
 
+   
+
+        
         }
 
-        //function renderTasks() {
-        //var toDo = document.querySelector("#here")
-        //allRows[currentRow].toDo.textContent += JSON.parse(localStorage.getItem("task"))
+    );
+renderTasks()
 
-        //}
+$(".todo").on("click", function(event) {
+console.log(event)})
+
+// i need the event of the row task i click on so that I can reach grandparent id
+function selectRow (event) {
+
+}
+selectRow()
 
 
 
+function renderTasks() {
+    var task = document.querySelector("#here").value
+    task.innerHTML = "";
+    var writtenTask = document.querySelectorAll(".todo")
+
+    //currentRow = parseInt(writtenTask.parentElement.id);
+    task = allRows[currentRow].task
+        //for (var i = 0; i < writtenTask.length; i++) {
+        //allRows[currentRow].task.innerHTML 
+        task += JSON.parse(localStorage.getItem("task"))
+        writtenTask += localStorage.setItem("task", JSON.stringify(task))
+        console.log(writtenTask)
+        var li = document.createElement("li");
+        li.textContent = writtenTask
+        taskList.appendChild(li)
+        
+        
+    //}
+}
 
         //$(".todo").css("float", "left");
 
-        area.css("float", "left")
         //$(".time-block").append("<textarea>")
 
        // allRows[currentRow].push({task: task})
       // storeTasks()
-  });
+  
 
   function storeTasks () {
     localStorage.setItem("task", JSON.stringify(task))
@@ -177,12 +224,20 @@ for (var i=0; i < timeText.length; i++) {
       console.log(task)
   }
 
-//to add the class of .hour
-function onHour () {
-    var nineHour = document.querySelector(".nine");
-nineHour.classList.add("present");
-}
-
-onHour()
 
 
+
+
+
+  //NOW I NEED TO SAY IF BLOCK HOUR IS THE SAME AS CURRENT TIME ADD CLASS "PRESENT"
+//IF SMALLER THAN CURRENT TIME ADD CLASS PAS
+//IF BIGGER THAN CURRENT TIME ADD CLASS FUTURE
+
+
+
+
+
+
+
+
+});
