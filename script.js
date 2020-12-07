@@ -24,18 +24,15 @@ events.forEach( event => {
 // the rows will be in an array that will include an array of task for each row
 
 
-
 const currentDay = document.querySelector("#currentDay");
 currentDay.textContent = dayjs().format("dddd, MMMM D, YYYY");
 
 const currentTime = document.querySelector("#currentTime")
 //currentTime.textContent = Date().toLocaleTimeString();
-var d = new Date();
-//var n = 
 
 
 let now = dayjs();
-currentTime.textContent = now.format("h:mm:ss a")
+currentTime.textContent = now.format("hA")
 console.log(now.format("h:mm:ss a"));
 //var allRows = document.querySelector(".extrablocks");
 var createRows = [];
@@ -100,13 +97,28 @@ console.log($(".row"))
 
 
 
-
+//THIS IS WHERE YOU LEFT OFF WITH THE DAYJS MESS
 
 var timeText = document.querySelectorAll("#time")
+var date = document.querySelectorAll(".date")
+
+for (var i=0; i < timeText.length; i++) {
+    var time = dayjs("2020-12-06T09:00:00")
+    timeText[i].textContent = dayjs(time).add(i, 'hour').format("hA")
+}
+
+/*allRows.forEach( date => {
+    var time = dayjs("2020-12-06T09:00:00").format("hA")
+    var timeElement = document.querySelector(".time")
+    timeElement.textContent = time.add(1, 'hour')
+    //$(".time").text
+
+})
 for (var i=0; i < timeText.length; i++) {
     var time = 9;
     timeText[i].textContent = time + i
 }
+*/
 
 
     var currentRow = 0
