@@ -117,11 +117,11 @@ for (var i=0; i < timeText.length; i++) {
     } 
 }
 
-if (timeText[0].textContent === currentTime.textContent) {
+if (currentTime.textContent === "9AM") {
     timeBlock[0].classList.add("present")
-} else if (timeText[0].textContent < currentTime.textContent) {
+} else if (timeText[0].textContent < now.format("hA")) {
     timeBlock[0].classList.add("past")
-} else if (timeText[0].textContent > currentTime.textContent) {
+} else if (timeText[0].textContent > now.format("hA")) {
     timeBlock[0].classList.add("future")
 }
 console.log(timeText[0])
@@ -144,7 +144,6 @@ for (var i=0; i < timeText.length; i++) {
 
 console.log($("#4"))
 
-
     var currentRow = 0
     //var taskText = document.querySelector("#here")
     var taskList = document.querySelector(".task-list")
@@ -152,15 +151,21 @@ console.log($("#4"))
 
     $(".saveBtn").on("click", function(event) {
         event.preventDefault();
+        var writtenTask = document.querySelectorAll(".todo")
+
         currentRow = parseInt(event.target.parentElement.id);
         console.log(currentRow)
         var area = $("<textarea>")
-        var task = document.querySelector("#here").value;
-        //var task = allRows[currentRow].taskText.value
-        var writtenTask = $(".todo")
-        //allRows[currentRow].writtenTask.textContent += JSON.parse(localStorage.getItem("task"))
+        var task = document.querySelectorAll(".todo");
+        console.log(task)
+        var input = task[currentRow].value;
 
-        localStorage.setItem("task", JSON.stringify(task))
+        //var task = allRows[currentRow].taskText.value
+        //allRows[currentRow].writtenTask.textContent += JSON.parse(localStorage.getItem("task"))
+        task[currentRow] += localStorage.setItem(currentRow, JSON.stringify(input))
+        //writtenTask[currentRow+1].textContent = JSON.parse(localStorage.getItem("task"))
+        //console.log(newTask)
+        //task += localStorage.setItem("task", JSON.stringify(task))
         console.log(writtenTask)
         //allRows[currentRow].push(toDo)
         console.log(task)
@@ -169,7 +174,7 @@ console.log($("#4"))
         if (task === false) {
             return;
         } 
-            renderTasks();
+            //renderTasks();
 
    
 
@@ -177,52 +182,17 @@ console.log($("#4"))
         }
 
     );
-renderTasks()
+    var writtenTask = document.querySelectorAll(".todo");
 
-$(".todo").on("click", function(event) {
-console.log(event)})
+    for (i = 0; i < allRows.length; i++) {
+        writtenTask[i].textContent = JSON.parse(localStorage.getItem(i))
 
-// i need the event of the row task i click on so that I can reach grandparent id
-function selectRow (event) {
-
-}
-selectRow()
+    }
 
 
 
-function renderTasks() {
-    var task = document.querySelector("#here").value
-    task.innerHTML = "";
-    var writtenTask = document.querySelectorAll(".todo")
-
-    //currentRow = parseInt(writtenTask.parentElement.id);
-    task = allRows[currentRow].task
-        //for (var i = 0; i < writtenTask.length; i++) {
-        //allRows[currentRow].task.innerHTML 
-        task += JSON.parse(localStorage.getItem("task"))
-        writtenTask += localStorage.setItem("task", JSON.stringify(task))
-        console.log(writtenTask)
-        var li = document.createElement("li");
-        li.textContent = writtenTask
-        taskList.appendChild(li)
-        
-        
-    //}
-}
-
-        //$(".todo").css("float", "left");
-
-        //$(".time-block").append("<textarea>")
-
-       // allRows[currentRow].push({task: task})
-      // storeTasks()
   
 
-  function storeTasks () {
-    localStorage.setItem("task", JSON.stringify(task))
-
-      console.log(task)
-  }
 
 
 
