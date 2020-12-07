@@ -81,13 +81,15 @@ console.log(allRows)
 
  // var newRows = allRows.push($("#0").clone().appendTo(".extrablocks"))
 for (i = 0; i < 9; i++) {
-var time = 9;
     var newRows = $("#0").clone().attr("id", i+1).appendTo(".extrablocks")
     
-    $(".time").text(time++)
 }
     var allRows = $(".row")
     //$("#0").
+        var time = 9;
+   //$("#timeblocks").children().each(function () {
+
+  //.each($(".time").text(time+i))
 
 
 console.log($(".row"))
@@ -124,7 +126,7 @@ console.log($(".row"))
    // console.log(rowA)
 
 var time = 9;
-$(".time").text(time)
+//$(".time").text(time+i)
 
 //console.log(newRows[3])
 
@@ -136,7 +138,7 @@ $(".time").text(time)
     //console.log(allRows[0])
 
     var currentRow = 0
-    var task = document.querySelector("#here").value;
+    //var taskText = document.querySelector("#here")
 
 
     $(".saveBtn").on("click", function(event) {
@@ -145,16 +147,23 @@ $(".time").text(time)
         console.log(currentRow)
         var area = $("<textarea>")
         console.log(task)
-        localStorage.setItem("task", JSON.stringify(task))
+        var task = document.querySelector("#here").value;
+        //var task = allRows[currentRow].taskText.value
         var writtenTask = JSON.parse(localStorage.getItem("task"))
+
+        localStorage.setItem("task", JSON.stringify(task))
         console.log(writtenTask)
 
         console.log(event)
         if (task === false) {
             return;
         } else {
+            renderTasks();
 
+        }
 
+        function renderTasks() {
+            
         }
 
 
