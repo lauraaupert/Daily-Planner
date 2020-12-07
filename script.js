@@ -97,7 +97,6 @@ console.log($(".row"))
 
 
 
-//THIS IS WHERE YOU LEFT OFF WITH THE DAYJS MESS
 
 var timeText = document.querySelectorAll("#time")
 var date = document.querySelectorAll(".date")
@@ -119,6 +118,11 @@ for (var i=0; i < timeText.length; i++) {
     timeText[i].textContent = time + i
 }
 */
+
+//NOW I NEED TO SAY IF BLOCK HOUR IS THE SAME AS CURRENT TIME ADD CLASS "PRESENT"
+//IF SMALLER THAN CURRENT TIME ADD CLASS PAS
+//IF BIGGER THAN CURRENT TIME ADD CLASS FUTURE
+
 
 
     var currentRow = 0
