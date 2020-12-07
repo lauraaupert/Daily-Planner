@@ -47,44 +47,24 @@ var createRows = [];
     var todoInput = document.querySelector("#todo-text");
 
     var saveBtn = $(".saveBtn")
-    var row = $(".row")
+    //var row = $(".row")
     //var allRows = [
      //   {row: ["yellow", "blue"]
     //    },
     //    {row: []}, 
 //]
+
+
     var rowA = $("#0")
-    //.attr("id", 0)
-    //i=0
-    //0.attr("id", "row"+i)
-
-
-    //var allRows = [$(".row")]
-
-//allRows.push({row: ["hello"]})
-//console.log(allRows[2].row[0])
-console.log(allRows)
-//allRows.push(row)
-//saveBtn.append(row)
-
-    //var row_id = $("#0:nth-child(1)").last().attr("id");
-    //var split_id = row_id.split();
-  
-    // New index
-    //var index = Number([1]) + 1;
-//var index = Number([1]) + 1;
-//$(newRows).find('0:nth-child(1)').attr("id","0"+index);
-  //$(newRows).find('0:nth-child(2)').attr("id", "0"+index);
-  // Set value
-  //$(newRows).find('0:nth-child(1)').val("row"+index);
-  //$(newRows).find('0:nth-child(2)').val("row"+index);
 
  // var newRows = allRows.push($("#0").clone().appendTo(".extrablocks"))
 for (i = 0; i < 9; i++) {
     var newRows = $("#0").clone().attr("id", i+1).appendTo(".extrablocks")
-    
 }
-    var allRows = $(".row")
+var allRows = $(".row")
+
+
+console.log(allRows[3])
     //$("#0").
         var time = 9;
    //$("#timeblocks").children().each(function () {
@@ -120,25 +100,18 @@ console.log($(".row"))
 
 
 
-  //$each(rowA)
-
-  //$("#timeblocks").children("#rowA").each(i++)
-   // console.log(rowA)
-
-var time = 9;
-//$(".time").text(time+i)
-
-//console.log(newRows[3])
 
 
-//console.log(allRows[0].row[0])
+var timeText = document.querySelectorAll("#time")
+for (var i=0; i < timeText.length; i++) {
+    var time = 9;
+    timeText[i].textContent = time + i
+}
 
-
-//or row = allRows[i]
-    //console.log(allRows[0])
 
     var currentRow = 0
     //var taskText = document.querySelector("#here")
+    var task = 
 
 
     $(".saveBtn").on("click", function(event) {
@@ -149,22 +122,26 @@ var time = 9;
         console.log(task)
         var task = document.querySelector("#here").value;
         //var task = allRows[currentRow].taskText.value
-        var writtenTask = JSON.parse(localStorage.getItem("task"))
+        var writtenTask = $(".todo")
+        //allRows[currentRow].writtenTask.textContent += JSON.parse(localStorage.getItem("task"))
 
         localStorage.setItem("task", JSON.stringify(task))
         console.log(writtenTask)
+        //allRows[currentRow].push(toDo)
 
         console.log(event)
         if (task === false) {
             return;
         } else {
-            renderTasks();
+            //renderTasks();
 
         }
 
-        function renderTasks() {
-            
-        }
+        //function renderTasks() {
+        //var toDo = document.querySelector("#here")
+        //allRows[currentRow].toDo.textContent += JSON.parse(localStorage.getItem("task"))
+
+        //}
 
 
 
