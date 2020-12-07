@@ -83,3 +83,20 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+.clearBtn {
+  border-left: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+
+  background-color:rgb(255, 251, 0);
+  color: black;
+  margin-right: 10%;
+  margin-left: 10%
+  
+  padding: 30px;
+  height: 80px;
+  width: 80%;
+}

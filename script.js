@@ -42,9 +42,7 @@ var currentRow = 0
     $(".saveBtn").on("click", function(event) {
         event.preventDefault();
         currentRow = parseInt(event.target.parentElement.id);
-        console.log(currentRow)
         var task = document.querySelectorAll(".todo");
-        console.log(task)
         var input = task[currentRow].value;
         task[currentRow] += localStorage.setItem(currentRow, JSON.stringify(input))
         if (task === false) {
@@ -53,11 +51,30 @@ var currentRow = 0
         });
 
     var writtenTask = document.querySelectorAll(".todo");
-
+        setTasks();
+    function setTasks() {
     for (i = 0; i < allRows.length; i++) {
         writtenTask[i].textContent = JSON.parse(localStorage.getItem(i))
-
     }
+    }
+
+    //should I make a clear button? 
+    $(".clearBtn").on("click", function(event) {
+        event.preventDefault();
+        confirm("Are you sure?");
+        if (confirm === false) {
+            return;
+        } else if (confirm) {
+            localStorage.clear()
+            setTasks();        
+            }
+        
+        })
+
+
+        
+
+    })
 
 
 
@@ -77,4 +94,3 @@ var currentRow = 0
 
 
 
-});
