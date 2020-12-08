@@ -93,10 +93,10 @@ textarea{
 
   background-color:rgb(255, 251, 0);
   color: black;
-  margin-right: 10%;
-  margin-left: 10%
+  float: none;
+  align-self: center;
   
   padding: 30px;
   height: 80px;
-  width: 80%;
+  width: 50%;
 }

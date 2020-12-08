@@ -25,12 +25,18 @@ for (var i=0; i < timeText.length; i++) {
         timeBlock[i].classList.add("past")
     } else if (timeText[i].textContent > currentTime.textContent) {
         timeBlock[i].classList.add("future")
-    } 
+    }     
+    if (timeBlock[0] && currentTime.textContent !== "9AM") {
+    timeBlock[0].classList.add("past")
+    }
+
 }
 console.log(timeText)
 console.log(timeBlock)
 
-/*if (currentTime.textContent === "9AM") {
+
+    /* 
+if (currentTime.textContent === "9AM") {
     timeBlock[0].classList.add("present")
 } else if (timeText[0].textContent < now.format("hA")) {
     timeBlock[0].classList.add("past")
@@ -45,9 +51,6 @@ var currentRow = 0
         var task = document.querySelectorAll(".todo");
         var input = task[currentRow].value;
         task[currentRow] += localStorage.setItem(currentRow, JSON.stringify(input))
-        if (task === false) {
-            return;
-        } 
         });
 
     var writtenTask = document.querySelectorAll(".todo");
@@ -55,25 +58,15 @@ var currentRow = 0
     function setTasks() {
     for (i = 0; i < allRows.length; i++) {
         writtenTask[i].textContent = JSON.parse(localStorage.getItem(i))
-    }
+        }
     }
 
     //should I make a clear button? 
     $(".clearBtn").on("click", function(event) {
         event.preventDefault();
-        confirm("Are you sure?");
-        if (confirm === false) {
-            return;
-        } else if (confirm) {
-            localStorage.clear()
-            setTasks();        
-            }
-        
-        })
-
-
-        
-
+        localStorage.clear()
+        setTasks()        
+        });
     })
 
 
