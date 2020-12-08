@@ -26,22 +26,6 @@ for ( i=0; i < allRows.length; i++) {
         timeBlock[i].classList.add("future")
     }     
 }
-    //for ( i=1; i < timeText.length; i++) {
-    
-//}
-
-/*timeBlock[0].classList.add("past")
-
-console.log(timeText)
-console.log(timeBlock)
-
-
-    
-if (timeText[0].textContent === currentTime.textContent) {
-    timeBlock[0].classList.add("present")
-} else if (timeText[0].textContent < currentTime.textContent) {
-    timeBlock[0].classList.add("past")
-} */
 
 var currentRow = 0
     $(".saveBtn").on("click", function(event) {
