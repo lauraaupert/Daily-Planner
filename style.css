@@ -33,6 +33,7 @@ textarea{
   text-align: center;
   border-radius: 15px;
   height: 80px;
+  border-top: 1px inset #000000;
 }
 
 .row {
@@ -75,11 +76,6 @@ textarea{
   padding: 30px;
   height: 80px;
   width: 8%;
-
-  /*float: right;
-  text-align: center;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;*/
 }
 
 .saveBtn i:hover {
@@ -96,7 +92,6 @@ textarea{
 
   background-color:rgb(255, 251, 0);
   color: black;
-  
   
   padding: 30px;
   height: 80px;
