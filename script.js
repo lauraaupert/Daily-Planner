@@ -16,7 +16,7 @@ var allRows = $(".row")
 var timeText = document.querySelectorAll("#time")
 var timeBlock = document.querySelectorAll(".time-block")
 
-for (var i=0; i < timeText.length; i++) {
+for ( i=0; i < timeText.length; i++) {
     var time = dayjs("2020-12-06T09:00:00")
     timeText[i].textContent = dayjs(time).add(i, 'hour').format("hA")
     if (timeText[i].textContent === currentTime.textContent) {
@@ -26,23 +26,23 @@ for (var i=0; i < timeText.length; i++) {
     } else if (timeText[i].textContent > currentTime.textContent) {
         timeBlock[i].classList.add("future")
     }     
-    if (timeBlock[0] && currentTime.textContent !== "9AM") {
-    timeBlock[0].classList.add("past")
-    }
-
 }
+    //for ( i=1; i < timeText.length; i++) {
+    
+//}
+
+/*timeBlock[0].classList.add("past")
+
 console.log(timeText)
 console.log(timeBlock)
 
 
-    /* 
-if (currentTime.textContent === "9AM") {
+    
+if (timeText[0].textContent === currentTime.textContent) {
     timeBlock[0].classList.add("present")
-} else if (timeText[0].textContent < now.format("hA")) {
+} else if (timeText[0].textContent < currentTime.textContent) {
     timeBlock[0].classList.add("past")
-} else if (timeText[0].textContent > now.format("hA")) {
-    timeBlock[0].classList.add("future")
-}*/
+} */
 
 var currentRow = 0
     $(".saveBtn").on("click", function(event) {
