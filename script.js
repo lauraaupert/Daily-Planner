@@ -5,7 +5,8 @@ currentDay.textContent = dayjs().format("dddd, MMMM D, YYYY");
 
 const currentTime = document.querySelector("#currentTime")
 let now = dayjs();
-currentTime.textContent = now.format("HH")
+currentTime.textContent = now.format("HH") 
+currentTime.style.display = "none"
 
 
 for (i = 0; i < 9; i++) {
