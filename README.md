@@ -16,6 +16,7 @@ GitHub: https://github.com/lauraaupert/Daily-Planner
 Technologies used: Javascript, jQuery, HTML/CSS, DayJS API
 
 ![image](https://user-images.githubusercontent.com/73617474/104407819-84383780-5530-11eb-9252-88245d0e2299.png)
+![image](https://user-images.githubusercontent.com/73617474/104492812-2d6b4600-55a2-11eb-9bfe-3667214cbea0.png)
 
 MIT License
 
