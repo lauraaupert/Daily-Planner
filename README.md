@@ -11,8 +11,9 @@ that compares the present time to each block's time.
 
 
 Link: https://lauraaupert.github.io/Daily-Planner/
+GitHub: https://github.com/lauraaupert/Daily-Planner
 
-Technologies used: Javascript, jQuery, HTML/CSS, OpenWeather Map API
+Technologies used: Javascript, jQuery, HTML/CSS, DayJS API
 
 ![image](https://user-images.githubusercontent.com/73617474/104407819-84383780-5530-11eb-9252-88245d0e2299.png)
 
